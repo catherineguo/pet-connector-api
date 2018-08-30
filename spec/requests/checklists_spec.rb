@@ -9,7 +9,7 @@ RSpec.describe 'Checklists API' do
       start_date: '2018-07-01',
       end_date: '2018-07-07',
       pet_name: 'Foofoo',
-      instructions: 'Feed Foofoo twice daily.',
+      instructions: 'Feed Foofoo twice daily.'
     }
   end
 
@@ -96,21 +96,25 @@ RSpec.describe 'Checklists API' do
     end
   end
 
-  # describe 'POST /articles' do
-  #   def new_article
-  #     {
-  #       title: 'Rachel is sick',
-  #       content: 'Kids are the problem.'
-  #     }
-  #   end
-  #   it 'creates an article' do
-  #     post '/articles/', params: { article: new_article }
-  #
-  #     expect(response).to be_success
-  #
-  #     article_response = JSON.parse(response.body)
-  #     expect(article_response['id']).not_to be_nil
-  #     expect(article_response['title']).to eq(new_article[:title])
-  #   end
-  # end
+  describe 'POST /checklists' do
+    def new_checklist
+      {
+        title: 'Barbar August Checklist',
+        start_date: '2018-08-01',
+        end_date: '2018-08-08',
+        pet_name: 'Barbar',
+        instructions: 'Feed Barbar once everyday.'
+      }
+    end
+
+    it 'creates a checklist' do
+      post '/checklists/', params: { checklist: new_checklist }
+
+      expect(response).to be_success
+
+      checklist_response = JSON.parse(response.body)
+      expect(checklist_response['id']).not_to be_nil
+      expect(checklist_response['title']).to eq(new_article[:title])
+    end
+  end
 end

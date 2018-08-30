@@ -30,4 +30,8 @@ RSpec.describe 'routes for checklists' do
       id: '1'
     )
   end
+
+  it 'routes POST /checklists to the checklists#create action' do
+    expect(post('/checklists')).to route_to('checklists#create')
+  end
 end
