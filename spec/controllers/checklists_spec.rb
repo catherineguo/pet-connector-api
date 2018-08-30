@@ -9,7 +9,7 @@ RSpec.describe ChecklistsController do
       start_date: '2018-07-01',
       end_date: '2018-07-07',
       pet_name: 'Foofoo',
-      instructions: 'Feed Foofoo twice daily.',
+      instructions: 'Feed Foofoo twice daily.'
     }
   end
 
