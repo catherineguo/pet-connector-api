@@ -73,16 +73,16 @@ RSpec.describe 'Checklists API' do
     end
   end
 
-  # describe 'DELETE /articles/:id' do
-  #   it 'deletes an article' do
-  #     delete "/articles/#{article.id}"
-  #
-  #     expect(response).to be_success
-  #     expect(response.body).to be_empty
-  #     expect(article).to be_nil
-  #   end
-  # end
-  #
+  describe 'DELETE /checklists/:id' do
+    it 'deletes a checklist' do
+      delete "/checklists/#{checklist.id}"
+
+      expect(response).to be_success
+      expect(response.body).to be_empty
+      expect(checklist).to be_nil
+    end
+  end
+
   # describe 'PATCH /articles/:id' do
   #   def article_diff
   #     { title: 'Two Stupid Tricks' }

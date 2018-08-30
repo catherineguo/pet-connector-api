@@ -14,4 +14,12 @@ RSpec.describe 'routes for checklists' do
       id: '1'
     )
   end
+
+  it 'routes DELETE /checklists/:id to the checklists#destroy action' do
+    expect(delete('/checklists/1')).to route_to(
+      controller: 'checklists',
+      action: 'destroy',
+      id: '1'
+    )
+  end
 end
