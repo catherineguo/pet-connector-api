@@ -16,6 +16,14 @@ class ChecklistsController < ApplicationController
     head :no_content
   end
 
+  def update
+    if @checklist.update(checklist_params)
+      render json: @checklist
+    else
+      render json: @checklist.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_checklist

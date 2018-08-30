@@ -49,6 +49,7 @@ RSpec.describe ChecklistsController do
 
     it 'renders a JSON response' do
       checklist_response = JSON.parse(response.body)
+
       expect(checklist_response).not_to be_nil
     end
   end
@@ -59,6 +60,24 @@ RSpec.describe ChecklistsController do
       expect(response).to be_successful
       expect(response.body).to be_empty
       expect(checklist).to be_nil
+    end
+  end
+
+  describe 'PATCH update' do
+    def checklist_diff
+      { title: 'Foofoo July 1 to July 7 Checklist' }
+    end
+
+    before(:each) { patch :update, params: { id: checklist.id, checklist: checklist_diff }}
+    it 'is successful' do
+      expect(response.status).to eq(200)
+    end
+
+    it 'renders a JSON response' do
+      checklist_response = JSON.parse(response.body)
+
+      expect(checklist_response).not_to be_nil
+      expect(checklist_response['title']).to eq('Foofoo July 1 to July 7 Checklist')
     end
   end
 end
