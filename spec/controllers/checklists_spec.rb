@@ -80,4 +80,27 @@ RSpec.describe ChecklistsController do
       expect(checklist_response['title']).to eq('Foofoo July 1 to July 7 Checklist')
     end
   end
+
+  describe 'POST create' do
+    def new_checklist
+      {
+        title: 'Barbar August Checklist',
+        start_date: '2018-08-01',
+        end_date: '2018-08-08',
+        pet_name: 'Barbar',
+        instructions: 'Feed Barbar once everyday.'
+      }
+    end
+
+    before(:each) { post :create, params: { checklist: new_checklist } }
+    it 'is successful' do
+      expect(response.status).to eq(201)
+    end
+
+    it 'renders a JSON response' do
+      checklist_response = JSON.parse(response.body)
+
+      expect(checklist_response).not_to be_nil
+    end
+  end
 end

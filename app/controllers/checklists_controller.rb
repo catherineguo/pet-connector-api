@@ -24,6 +24,16 @@ class ChecklistsController < ApplicationController
     end
   end
 
+  def create
+    @checklist = Checklist.new(checklist_params)
+
+    if @checklist.save
+      render json: @checklist, status: :created
+    else
+      render json: @checklist.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_checklist

@@ -114,7 +114,7 @@ RSpec.describe 'Checklists API' do
 
       checklist_response = JSON.parse(response.body)
       expect(checklist_response['id']).not_to be_nil
-      expect(checklist_response['title']).to eq(new_article[:title])
+      expect(checklist_response['title']).to eq(new_checklist[:title])
     end
   end
 end
