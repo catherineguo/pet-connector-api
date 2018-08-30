@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-class ChecklistsController < ApplicationController
+class ChecklistsController < ProtectedController
   before_action :set_checklist, only: %i[show update destroy]
 
   def index
-    render json: Checklist.all
+    render json: current_user.checklists.all
   end
 
   def show
@@ -25,7 +25,7 @@ class ChecklistsController < ApplicationController
   end
 
   def create
-    @checklist = Checklist.new(checklist_params)
+    @checklist = current_user.checklists.build(checklist_params)
 
     if @checklist.save
       render json: @checklist, status: :created
@@ -37,7 +37,7 @@ class ChecklistsController < ApplicationController
   private
 
   def set_checklist
-    @checklist = Checklist.find(params[:id])
+    @checklist = current_user.checklists.find(params[:id])
   end
 
   def checklist_params
