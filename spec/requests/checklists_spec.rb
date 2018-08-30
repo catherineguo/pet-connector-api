@@ -57,22 +57,22 @@ RSpec.describe 'Checklists API' do
       expect(checklists_response.first['title']).to eq(checklist['title'])
     end
   end
-  #
-  # describe 'GET /articles/:id' do
-  #   it 'shows one article' do
-  #     # make a get request to articles with the id of the article
-  #     # we creted befroe running this test
-  #     get "/articles/#{article.id}"
-  #
-  #     expect(response).to be_success
-  #
-  #     article_response = JSON.parse(response.body)
-  #
-  #     expect(article_response['id']).not_to be_nil
-  #     expect(article_response['title']).to eq(article_params[:title])
-  #   end
-  # end
-  #
+
+  describe 'GET /checklists/:id' do
+    it 'shows one checklist' do
+      # make a get request to checklists with the id of the checklist
+      # we created before running this test
+      get "/checklists/#{checklist.id}"
+
+      expect(response).to be_success
+
+      checklist_response = JSON.parse(response.body)
+
+      expect(checklist_response['id']).not_to be_nil
+      expect(checklist_response['title']).to eq(checklist_params[:title])
+    end
+  end
+
   # describe 'DELETE /articles/:id' do
   #   it 'deletes an article' do
   #     delete "/articles/#{article.id}"
