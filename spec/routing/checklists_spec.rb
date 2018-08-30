@@ -22,4 +22,12 @@ RSpec.describe 'routes for checklists' do
       id: '1'
     )
   end
+
+  it 'routes PATCH /checklists/:id to the checklists#update action' do
+    expect(patch('/checklists/1')).to route_to(
+      controller: 'checklists',
+      action: 'update',
+      id: '1'
+    )
+  end
 end

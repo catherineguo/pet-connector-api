@@ -83,19 +83,19 @@ RSpec.describe 'Checklists API' do
     end
   end
 
-  # describe 'PATCH /articles/:id' do
-  #   def article_diff
-  #     { title: 'Two Stupid Tricks' }
-  #   end
-  #
-  #   it 'updates an article' do
-  #     patch "/articles/#{article.id}", params: { article: article_diff }
-  #     expect(response).to be_success
-  #     expect(response.body).not_to be_nil
-  #     expect(article[:title]).to eq(article_diff[:title])
-  #   end
-  # end
-  #
+  describe 'PATCH /checklists/:id' do
+    def checklist_diff
+      { title: 'Foofoo July 1 to July 7 Checklist' }
+    end
+
+    it 'updates a checklist' do
+      patch "/checklists/#{checklist.id}", params: { checklist: checklist_diff }
+      expect(response).to be_success
+      expect(response.body).not_to be_nil
+      expect(checklist[:title]).to eq(checklist_diff[:title])
+    end
+  end
+
   # describe 'POST /articles' do
   #   def new_article
   #     {
