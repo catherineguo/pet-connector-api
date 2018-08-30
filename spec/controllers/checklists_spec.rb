@@ -53,4 +53,12 @@ RSpec.describe ChecklistsController do
     end
   end
 
+  describe 'DELETE destroy' do
+    it 'is successful' do
+      delete :destroy, params: { id: checklist.id }
+      expect(response).to be_successful
+      expect(response.body).to be_empty
+      expect(checklist).to be_nil
+    end
+  end
 end

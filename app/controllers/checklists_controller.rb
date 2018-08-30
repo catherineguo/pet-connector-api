@@ -11,6 +11,11 @@ class ChecklistsController < ApplicationController
     render json: @checklist
   end
 
+  def destroy
+    @checklist.destroy
+    head :no_content
+  end
+
   private
 
   def set_checklist
