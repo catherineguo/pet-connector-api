@@ -33,11 +33,24 @@ RSpec.describe ChecklistsController do
 
     it 'renders a JSON response' do
       # takes the JSON in the response and makes it into a Ruby object
-      # that we can manipulate. Assigns that object to article_collection.
-      checklists_collection = JSON.parse(response.body)
+      # that we can manipulate. Assigns that object to checklist_collection.
+      checklist_collection = JSON.parse(response.body)
 
-      expect(checklists_collection).not_to be_nil
-      expect(checklists_collection.first['title']).to eq(checklist['title'])
+      expect(checklist_collection).not_to be_nil
+      expect(checklist_collection.first['title']).to eq(checklist['title'])
     end
   end
+
+  describe 'GET show' do
+    before(:each) { get :show, params: { id: checklist.id } }
+    it 'is successful' do
+      expect(response.status).to eq(200)
+    end
+
+    it 'renders a JSON response' do
+      checklist_response = JSON.parse(response.body)
+      expect(checklist_response).not_to be_nil
+    end
+  end
+
 end

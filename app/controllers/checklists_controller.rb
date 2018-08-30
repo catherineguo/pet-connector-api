@@ -7,6 +7,10 @@ class ChecklistsController < ApplicationController
     render json: Checklist.all
   end
 
+  def show
+    render json: @checklist
+  end
+
   private
 
   def set_checklist
