@@ -3,6 +3,9 @@
 class ChecklistsController < ApplicationController
   before_action :set_checklist, only: %i[show update destroy]
 
+  def index
+    render json: Checklist.all
+  end
 
   private
 
