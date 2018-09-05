@@ -3,7 +3,7 @@ My second project is a full-stack web app that allows pet owners to create and s
 
 - Deployed back end: https://floating-lake-10570.herokuapp.com/
 - Front end repo: https://github.com/catherineguo/pet-connector-client
-- Deployed front end: https://github.com/catherineguo/pet-connector-client
+- Deployed front end: https://catherineguo.github.io/pet-connector-client/
 
 Technologies used in this project: Ruby on Rails, PostgreSQL, JavaScript, Handlebars, jQuery, AJAX, Bootstrap, Sass
 
